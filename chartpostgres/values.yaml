@@ -1,0 +1,5 @@
+database:
+  user: admin
+  password: securepassword
+  host: localhost
+  port: 5432

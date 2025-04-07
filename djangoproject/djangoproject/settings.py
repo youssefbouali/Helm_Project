@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-j1dh((u%*h^%8#@xtptu*xv%4qek3c(h)6x8l_ye*ae97-kd2f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -54,7 +54,7 @@ ROOT_URLCONF = 'djangoproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'myapp/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -79,6 +79,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 
 
 # Password validation

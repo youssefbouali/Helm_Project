@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: django-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: django-app
+  template:
+    metadata:
+      labels:
+        app: django-app
+    spec:
+      containers:
+      - name: django-app
+        image: python:3.9
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - mountPath: /
+          name: app-volume
+        workingDir: /
+        tty: true
+        stdin: true
+        command: ["sh", "-c", "pip install Django psycopg2 && python3 manage.py runserver 0.0.0.0:80"]
+      volumes:
+      - name: app-volume
+        hostPath:
+          path: .
+
